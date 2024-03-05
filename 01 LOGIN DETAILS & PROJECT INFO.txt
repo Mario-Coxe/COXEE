@@ -13,7 +13,7 @@ Email   : admin@mail.com
 Password: codeastro.com
 
 --Customer Login Details---
-Email   : customer@mail.com
+Email   : customer@mail.com         
 Password: codeastro.com
 
 
