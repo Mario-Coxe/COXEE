@@ -318,7 +318,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Related Products</h2>
+					<h2>Produtos Relacionados</h2>
 				</div>
 			</div>
 		</div>
@@ -337,17 +337,17 @@
 								@endphp
 								<img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
 								<img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-								<span class="price-dec">{{$data->discount}} % Off</span>
-								{{-- <span class="out-of-stock">Hot</span> --}}
+								<span class="price-dec">-{{$data->discount}} %</span>
+								{{-- <span class="out-of-stock">Popular</span> --}}
 							</a>
 							<div class="button-head">
 								<div class="product-action">
-									<a data-toggle="modal" data-target="#modelExample" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+									<a data-toggle="modal" data-target="#modelExample" title="Quick View" href="#"><i class=" ti-eye"></i><span>Ver</span></a>
+									<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Favorito</span></a>
+									<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Adicionar para comparar</span></a>
 								</div>
 								<div class="product-action-2">
-									<a title="Add to cart" href="#">Add to cart</a>
+									<a title="Add to cart" href="#">Adicionar ao carrinho</a>
 								</div>
 							</div>
 						</div>
@@ -357,8 +357,8 @@
 								@php
 								$after_discount=($data->price-(($data->discount*$data->price)/100));
 								@endphp
-								<span class="old">${{number_format($data->price,2)}}</span>
-								<span>${{number_format($after_discount,2)}}</span>
+								<span class="old">{{number_format($data->price,2)}} AOA</span>
+								<span>{{number_format($after_discount,2)}} AOA</span>
 							</div>
 
 						</div>
