@@ -353,11 +353,11 @@ class FrontendController extends Controller
         $data= $request->all();
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
             Session::put('user',$data['email']);
-            request()->session()->flash('success','Logged in successfully!');
+            request()->session()->flash('success', 'Conectado com sucesso!');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
+            request()->session()->flash('error', 'E-mail e senha inválidos, tente novamente!');
             return redirect()->back();
         }
     }
@@ -365,7 +365,7 @@ class FrontendController extends Controller
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logged out successfully');
+        request()->session()->flash('success', 'Desconectado com sucesso');
         return back();
     }
 
@@ -384,11 +384,11 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Registered successfully');
+            request()->session()->flash('success', 'Registrado com sucesso');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error', 'Por favor, tente novamente!');
             return back();
         }
     }

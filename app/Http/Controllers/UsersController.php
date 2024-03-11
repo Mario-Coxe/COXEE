@@ -52,10 +52,10 @@ class UsersController extends Controller
         $status=User::create($data);
         // dd($status);
         if($status){
-            request()->session()->flash('success','User added successfully');
+            request()->session()->flash('success', 'Usuário adicionado com sucesso');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding user');
+            request()->session()->flash('error', 'Ocorreu um erro ao adicionar o usuário');
         }
         return redirect()->route('users.index');
 
@@ -108,7 +108,7 @@ class UsersController extends Controller
         
         $status=$user->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Successfully updated');
+            request()->session()->flash('success', 'Atualizado com sucesso');
         }
         else{
             request()->session()->flash('error','Error occured while updating');
