@@ -19,22 +19,12 @@
 					<!-- End Single Widget -->
 				</div>
 				<div class="col-lg-2 col-md-6 col-12">
-					<!-- Single Widget -->
-					<div class="single-footer links">
-						<h4>Information</h4>
-						<ul>
-							<li><a href="{{route('about-us')}}">Sobre</a></li>
-							<li><a href="#">Termos & Condições</a></li>
-							<li><a href="{{route('contact')}}">Contate-nos</a></li>
-							<li><a href="#">Ajuda</a></li>
-						</ul>
-					</div>
-					<!-- End Single Widget -->
+
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<!-- Single Widget -->
 					<div class="single-footer social">
-						<h4>Get In Tuch</h4>
+						<h4>Pegar em</h4>
 						<!-- Single Widget -->
 						<div class="contact">
 							<ul>
