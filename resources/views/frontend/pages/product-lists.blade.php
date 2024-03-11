@@ -313,28 +313,29 @@
                                             @endif
                                             @endfor
                                     </div>
-                                    <a href="#"> ({{$rate_count}} customer review)</a>
+                                    <a href="#"> ({{$rate_count}} avaliação do cliente)</a>
                                 </div>
                                 <div class="quickview-stock">
                                     @if($product->stock >0)
-                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
+                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} em estoque</span>
                                     @else
-                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out
-                                        stock</span>
+                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} Nenhum
+                                    </span>
                                     @endif
                                 </div>
                             </div>
                             @php
                             $after_discount=($product->price-($product->price*$product->discount)/100);
                             @endphp
-                            <h3><small><del class="text-muted">${{number_format($product->price,2)}}</del></small>
-                                ${{number_format($after_discount,2)}} </h3>
+                            <h3><small><del class="text-muted">{{number_format($product->price,2)}} AOA</del></small>
+                                {{number_format($after_discount,2)}} AOA
+                            </h3>
                             <div class="quickview-peragraph">
                                 <p>{!! html_entity_decode($product->summary) !!}</p>
                             </div>
                             @if($product->size)
                             <div class="size">
-                                <h4>Size</h4>
+                                <h4>Tamanho</h4>
                                 <ul>
                                     @php
                                     $sizes=explode(',',$product->size);
@@ -370,7 +371,7 @@
                                     <!--/ End Input Order -->
                                 </div>
                                 <div class="add-to-cart">
-                                    <button type="submit" class="btn">Add to cart</button>
+                                    <button type="submit" class="btn">Adicionar ao carrinho</button>
                                     <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i
                                             class="ti-heart"></i></a>
                                 </div>
