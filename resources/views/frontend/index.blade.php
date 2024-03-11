@@ -17,19 +17,18 @@
             <div class="carousel-caption d-none d-md-block text-left">
                 <h1 class="wow fadeInDown">{{$banner->title}}</h1>
                 <p>{!! html_entity_decode($banner->description) !!}</p>
-                <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i
-                        class="far fa-arrow-alt-circle-right"></i></i></a>
+                <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Comprar<i class="far fa-arrow-alt-circle-right"></i></i></a>
             </div>
         </div>
         @endforeach
     </div>
     <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Anterior</span>
     </a>
     <a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Seguinte</span>
     </a>
 </section>
 @endif
@@ -126,21 +125,18 @@
                                             @elseif($product->condition == 'new')
                                             <span class="new">Novo</span>
                                             @elseif($product->condition == 'hot')
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">Popular</span>
                                             @else
                                             <span class="price-dec">{{$product->discount}}% Off</span>
                                             @endif
                                     </a>
                                     <div class="button-head">
                                         <div class="product-action">
-                                            <a data-toggle="modal" data-target="#{{$product->id}}" title="Ver rápido"
-                                                href="#"><i class="ti-eye"></i><span>Compra rápida</span></a>
-                                            <a title="Favoritos" href="{{route('add-to-wishlist', $product->slug)}}"><i
-                                                    class="ti-heart"></i><span>Adicionar em favoritos</span></a>
+                                            <a data-toggle="modal" data-target="#{{$product->id}}" title="Ver rápido" href="#"><i class="ti-eye"></i><span>Compra rápida</span></a>
+                                            <a title="Favoritos" href="{{route('add-to-wishlist', $product->slug)}}"><i class="ti-heart"></i><span>Adicionar em favoritos</span></a>
                                         </div>
                                         <div class="product-action-2">
-                                            <a title="Carrinho"
-                                                href="{{route('add-to-cart', $product->slug)}}">Adicionar
+                                            <a title="Carrinho" href="{{route('add-to-cart', $product->slug)}}">Adicionar
                                                 No carrinho</a>
                                         </div>
                                     </div>
@@ -185,7 +181,7 @@
                     <div class="content">
                         <p>{{$data->cat_info['title']}}</p>
                         <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
-                        <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
+                        <a href="{{route('product-detail',$data->slug)}}">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -222,17 +218,15 @@
                                 @endphp
                                 <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                 <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                {{-- <span class="out-of-stock">Hot</span> --}}
+                                {{-- <span class="out-of-stock">Popular</span> --}}
                             </a>
                             <div class="button-head">
                                 <div class="product-action">
-                                    <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View"
-                                        href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                    <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}"><i
-                                            class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                    <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Comprar</span></a>
+                                    <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}"><i class=" ti-heart "></i><span>Favorito</span></a>
                                 </div>
                                 <div class="product-action-2">
-                                    <a href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
+                                    <a href="{{route('add-to-cart',$product->slug)}}">Adicionar no carrinho</a>
                                 </div>
                             </div>
                         </div>
@@ -285,16 +279,16 @@
                                         // dd($photo);
                                         @endphp
                                         <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                        <a href="{{route('add-to-cart',$product->slug)}}" class="buy"><i
-                                                class="fa fa-shopping-bag"></i></a>
+                                        <a href="{{route('add-to-cart',$product->slug)}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
-                                        <h4 class="title"><a
-                                                href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a>
+                                        <h4 class="title"><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a>
                                         </h4>
-                                        <p class="price with-discount">{{number_format($product->discount,2)}}% OFF</p>
+                                        <p class="price with-discount">{{number_format($product->discount,0)}}% De
+                                            Desconto
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -393,8 +387,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close"
-                        aria-hidden="true"></span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
             </div>
             <div class="modal-body">
                 <div class="row no-gutters">
@@ -437,14 +430,13 @@
                                             @endif
                                             @endfor
                                     </div>
-                                    <a href="#"> ({{$rate_count}} customer review)</a>
+                                    <a href="#"> ({{$rate_count}} avaliação do cliente)</a>
                                 </div>
                                 <div class="quickview-stock">
                                     @if($product->stock >0)
-                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
+                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} em estoque</span>
                                     @else
-                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out
-                                        stock</span>
+                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} Vendido</span>
                                     @endif
                                 </div>
                             </div>
@@ -489,17 +481,14 @@
                                     <!-- Input Order -->
                                     <div class="input-group">
                                         <div class="button minus">
-                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled"
-                                                data-type="minus" data-field="quant[1]">
+                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div>
                                         <input type="hidden" name="slug" value="{{$product->slug}}">
-                                        <input type="text" name="quant[1]" class="input-number" data-min="1"
-                                            data-max="1000" value="1">
+                                        <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="1000" value="1">
                                         <div class="button plus">
-                                            <button type="button" class="btn btn-primary btn-number" data-type="plus"
-                                                data-field="quant[1]">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
                                                 <i class="ti-plus"></i>
                                             </button>
                                         </div>
@@ -508,8 +497,7 @@
                                 </div>
                                 <div class="add-to-cart">
                                     <button type="submit" class="btn">Adicionar no carrinho</button>
-                                    <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i
-                                            class="ti-heart"></i></a>
+                                    <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
                                 </div>
                             </form>
                             <div class="default-social">
@@ -528,119 +516,119 @@
 
 @push('styles')
 <style>
-/* Banner Sliding */
-#Gslider .carousel-inner {
-    background: #000000;
-    color: black;
-}
+    /* Banner Sliding */
+    #Gslider .carousel-inner {
+        background: #000000;
+        color: black;
+    }
 
-#Gslider .carousel-inner {
-    height: 550px;
-}
+    #Gslider .carousel-inner {
+        height: 550px;
+    }
 
-#Gslider .carousel-inner img {
-    width: 100% !important;
-    opacity: .8;
-}
+    #Gslider .carousel-inner img {
+        width: 100% !important;
+        opacity: .8;
+    }
 
-#Gslider .carousel-inner .carousel-caption {
-    bottom: 60%;
-}
+    #Gslider .carousel-inner .carousel-caption {
+        bottom: 60%;
+    }
 
-#Gslider .carousel-inner .carousel-caption h1 {
-    font-size: 50px;
-    font-weight: bold;
-    line-height: 100%;
-    /* color: #F7941D; */
-    color: #1e1e1e;
-}
+    #Gslider .carousel-inner .carousel-caption h1 {
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 100%;
+        /* color: #F7941D; */
+        color: #1e1e1e;
+    }
 
-#Gslider .carousel-inner .carousel-caption p {
-    font-size: 18px;
-    color: black;
-    margin: 28px 0 28px 0;
-}
+    #Gslider .carousel-inner .carousel-caption p {
+        font-size: 18px;
+        color: black;
+        margin: 28px 0 28px 0;
+    }
 
-#Gslider .carousel-indicators {
-    bottom: 70px;
-}
+    #Gslider .carousel-indicators {
+        bottom: 70px;
+    }
 </style>
 @endpush
 
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script>
-/*==================================================================
+    /*==================================================================
         [ Isotope ]*/
-var $topeContainer = $('.isotope-grid');
-var $filter = $('.filter-tope-group');
+    var $topeContainer = $('.isotope-grid');
+    var $filter = $('.filter-tope-group');
 
-// filter items on button click
-$filter.each(function() {
-    $filter.on('click', 'button', function() {
-        var filterValue = $(this).attr('data-filter');
-        $topeContainer.isotope({
-            filter: filterValue
+    // filter items on button click
+    $filter.each(function() {
+        $filter.on('click', 'button', function() {
+            var filterValue = $(this).attr('data-filter');
+            $topeContainer.isotope({
+                filter: filterValue
+            });
+        });
+
+    });
+
+    // init Isotope
+    $(window).on('load', function() {
+        var $grid = $topeContainer.each(function() {
+            $(this).isotope({
+                itemSelector: '.isotope-item',
+                layoutMode: 'fitRows',
+                percentPosition: true,
+                animationEngine: 'best-available',
+                masonry: {
+                    columnWidth: '.isotope-item'
+                }
+            });
         });
     });
 
-});
+    var isotopeButton = $('.filter-tope-group button');
 
-// init Isotope
-$(window).on('load', function() {
-    var $grid = $topeContainer.each(function() {
-        $(this).isotope({
-            itemSelector: '.isotope-item',
-            layoutMode: 'fitRows',
-            percentPosition: true,
-            animationEngine: 'best-available',
-            masonry: {
-                columnWidth: '.isotope-item'
+    $(isotopeButton).each(function() {
+        $(this).on('click', function() {
+            for (var i = 0; i < isotopeButton.length; i++) {
+                $(isotopeButton[i]).removeClass('how-active1');
             }
+
+            $(this).addClass('how-active1');
         });
     });
-});
-
-var isotopeButton = $('.filter-tope-group button');
-
-$(isotopeButton).each(function() {
-    $(this).on('click', function() {
-        for (var i = 0; i < isotopeButton.length; i++) {
-            $(isotopeButton[i]).removeClass('how-active1');
-        }
-
-        $(this).addClass('how-active1');
-    });
-});
 </script>
 <script>
-function cancelFullScreen(el) {
-    var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
-    if (requestMethod) { // cancel full screen.
-        requestMethod.call(el);
-    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript !== null) {
-            wscript.SendKeys("{F11}");
+    function cancelFullScreen(el) {
+        var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
+        if (requestMethod) { // cancel full screen.
+            requestMethod.call(el);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
         }
     }
-}
 
-function requestFullScreen(el) {
-    // Supports most browsers and their versions.
-    var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el
-        .msRequestFullscreen;
+    function requestFullScreen(el) {
+        // Supports most browsers and their versions.
+        var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el
+            .msRequestFullscreen;
 
-    if (requestMethod) { // Native full screen.
-        requestMethod.call(el);
-    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript !== null) {
-            wscript.SendKeys("{F11}");
+        if (requestMethod) { // Native full screen.
+            requestMethod.call(el);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
         }
+        return false
     }
-    return false
-}
 </script>
 
 @endpush
